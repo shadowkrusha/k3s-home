@@ -2,7 +2,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: heimdall2
+  name: heimdall
   namespace: default
 spec:
   interval: 5m0s
@@ -34,11 +34,11 @@ spec:
       annotations:
         kubernetes.io/ingress.class: "nginx"
       hosts:
-      - host: "heimdall2.${SECRET_DOMAIN}"
+      - host: "heimdall.${SECRET_DOMAIN}"
         paths:
         - path: /
           pathType: Prefix
       tls:
       - hosts:
-        - "heimdall2.${SECRET_DOMAIN}"
+        - "heimdall.${SECRET_DOMAIN}"
 
