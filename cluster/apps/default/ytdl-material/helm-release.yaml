@@ -10,6 +10,7 @@ spec:
     spec:
       # renovate: registryUrl=https://tzahi12345.github.io/YoutubeDL-Material/chart/
       chart: youtubedl-material
+      version: 0.0.1
       sourceRef:
         kind: HelmRepository
         name: youtubedl-material
