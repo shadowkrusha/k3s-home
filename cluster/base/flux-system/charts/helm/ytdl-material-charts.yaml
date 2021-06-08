@@ -6,5 +6,5 @@ metadata:
   namespace: flux-system
 spec:
   interval: 30m
-  url: https://tzahi12345.github.io/YoutubeDL-Material/chart
+  url: https://tzahi12345.github.io/YoutubeDL-Material/chart/
   timeout: 2m
