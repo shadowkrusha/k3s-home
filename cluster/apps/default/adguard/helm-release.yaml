@@ -18,6 +18,8 @@ spec:
   values:
     image:
       pullPolicy: IfNotPresent
+    env:
+      TZ: Australia/Perth
     ingress:
       enabled: true
       annotations:
