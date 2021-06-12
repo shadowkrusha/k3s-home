@@ -54,7 +54,6 @@ spec:
             protocol: UDP
             targetPort: 53
             externalTrafficPolicy: Local
-      dns-udp:
     persistence:
       config:
         enabled: true
