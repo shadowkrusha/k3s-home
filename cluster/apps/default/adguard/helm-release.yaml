@@ -33,6 +33,13 @@ spec:
         tls:
         - hosts:
           - "adguard.${SECRET_DOMAIN}"
+    service:
+      dns-tcp:
+        enabled: true
+        type: LoadBalancer
+      dns-udp:
+        enabled: true
+        type: LoadBalancer
     persistence:
       config:
         enabled: true
