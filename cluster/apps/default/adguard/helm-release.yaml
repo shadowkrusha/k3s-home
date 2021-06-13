@@ -36,6 +36,8 @@ spec:
     service:
       dns-tcp:
         enabled: true
+        annotations:
+          metallb.universe.tf/allow-shared-ip: "ADGuard_DNS"
         type: LoadBalancer
         loadBalancerIP: 192.168.20.203
         ports:
@@ -47,6 +49,8 @@ spec:
             externalTrafficPolicy: Local
       dns-udp:
         enabled: true
+        annotations:
+          metallb.universe.tf/allow-shared-ip: "ADGuard_DNS"
         type: LoadBalancer
         loadBalancerIP: 192.168.20.203
         ports:
