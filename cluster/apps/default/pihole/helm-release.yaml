@@ -1,0 +1,37 @@
+---
+persistentVolumeClaim:
+  enabled: true
+  
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+  hosts:
+  - "pihole.shadowkrusha.net"
+  paths:
+  - path: /
+    pathType: Prefix
+  tls:
+  - hosts:
+    - "pihole.shadowkrusha.net"
+
+serviceWeb:
+  loadBalancerIP: 192.168.20.200
+  annotations:
+    metallb.universe.tf/allow-shared-ip: pihole-svc
+
+serviceDns:
+  loadBalancerIP: 192.168.20.201
+  annotations:
+    metallb.universe.tf/allow-shared-ip: pihole-svc
+  type: LoadBalancer
+
+resources:
+  limits:
+    cpu: 200m
+    memory: 256Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+# If using in the real world, set up admin.existingSecret instead.
+adminPassword: admin
