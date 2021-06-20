@@ -1,37 +1,60 @@
 ---
-persistentVolumeClaim:
-  enabled: true
-  
-ingress:
-  enabled: true
-  annotations:
-    kubernetes.io/ingress.class: "nginx"
-  hosts:
-  - "pihole.shadowkrusha.net"
-  paths:
-  - path: /
-    pathType: Prefix
-  tls:
-  - hosts:
-    - "pihole.shadowkrusha.net"
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: pihole
+  namespace: default
+spec:
+  interval: 5m
+  chart:
+    spec:
+      # renovate: registryUrl=https://mojo2600.github.io/pihole-kubernetes/
+      chart: pihole
+      version: 5.2.4
+      sourceRef:
+        kind: HelmRepository
+        name: mojo2600-charts
+        namespace: flux-system
+  values:
+    image:
+      pullPolicy: IfNotPresent
 
-serviceWeb:
-  loadBalancerIP: 192.168.20.200
-  annotations:
-    metallb.universe.tf/allow-shared-ip: pihole-svc
+    env:
+      TZ: Australia/Perth
 
-serviceDns:
-  loadBalancerIP: 192.168.20.201
-  annotations:
-    metallb.universe.tf/allow-shared-ip: pihole-svc
-  type: LoadBalancer
+    persistentVolumeClaim:
+      enabled: true
 
-resources:
-  limits:
-    cpu: 200m
-    memory: 256Mi
-  requests:
-    cpu: 100m
-    memory: 128Mi
-# If using in the real world, set up admin.existingSecret instead.
-adminPassword: admin
+    ingress:
+      enabled: true
+      annotations:
+        kubernetes.io/ingress.class: "nginx"
+      hosts:
+      - "pihole.shadowkrusha.net"
+      paths:
+      - path: /
+        pathType: Prefix
+      tls:
+      - hosts:
+        - "pihole.shadowkrusha.net"
+
+    serviceWeb:
+      loadBalancerIP: 192.168.20.200
+      annotations:
+        metallb.universe.tf/allow-shared-ip: pihole-svc
+
+    serviceDns:
+      loadBalancerIP: 192.168.20.201
+      annotations:
+        metallb.universe.tf/allow-shared-ip: pihole-svc
+      type: LoadBalancer
+
+    resources:
+      limits:
+        cpu: 200m
+        memory: 256Mi
+      requests:
+        cpu: 100m
+        memory: 128Mi
+    # If using in the real world, set up admin.existingSecret instead.
+    adminPassword: admin
