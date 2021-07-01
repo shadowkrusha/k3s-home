@@ -1,0 +1,44 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: nzbhydra2
+  namespace: default
+spec:
+  interval: 5m
+  chart:
+    spec:
+      # renovate: registryUrl=https://k8s-at-home.com/charts/
+      chart: nzbhydra2
+      version: 1.0.0
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home-charts
+        namespace: flux-system
+  values:
+    image:
+      pullPolicy: IfNotPresent
+    env:
+      TZ: Australia/Perth
+    ingress:
+      main:
+        enabled: true
+        annotations:
+          kubernetes.io/ingress.class: "nginx"
+        hosts:
+        - host: "nzbhydra2.${SECRET_DOMAIN}"
+          paths:
+          - path: /
+            pathType: Prefix
+        tls:
+        - hosts:
+          - "nzbhydra2.${SECRET_DOMAIN}"
+    persistence:
+      config:
+        enabled: true
+        existingClaim: nzbhydra2-conf
+        mountPath: /config
+      downloads:
+        enabled: true
+        existingClaim: nzbhydra2-downloads
+        mountPath: /downloads
