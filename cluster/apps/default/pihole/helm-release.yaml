@@ -30,13 +30,13 @@ spec:
       annotations:
         kubernetes.io/ingress.class: "nginx"
       hosts:
-      - "pihole.shadowkrusha.net"
-      paths:
-      - path: /
-        pathType: Prefix
-      tls:
-      - hosts:
         - "pihole.shadowkrusha.net"
+      paths:
+        - path: /
+          pathType: Prefix
+      tls:
+        - hosts:
+            - "pihole.shadowkrusha.net"
 
     serviceWeb:
       loadBalancerIP: 192.168.20.200

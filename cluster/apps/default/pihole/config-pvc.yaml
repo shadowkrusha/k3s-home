@@ -5,9 +5,8 @@ metadata:
   name: pihole
 spec:
   accessModes:
-  - ReadWriteOnce
+    - ReadWriteOnce
   storageClassName: local-path
   resources:
     requests:
       storage: 128Mi
-

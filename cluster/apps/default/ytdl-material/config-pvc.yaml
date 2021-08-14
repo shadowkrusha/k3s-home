@@ -5,7 +5,7 @@ metadata:
   name: ytdl-material-claim-subscriptions
 spec:
   accessModes:
-  - ReadWriteOnce
+    - ReadWriteOnce
   storageClassName: local-path
   resources:
     requests:
@@ -17,7 +17,7 @@ metadata:
   name: ytdl-material-claim-appdata
 spec:
   accessModes:
-  - ReadWriteOnce
+    - ReadWriteOnce
   storageClassName: local-path
   resources:
     requests:
@@ -29,7 +29,7 @@ metadata:
   name: ytdl-material-claim-video
 spec:
   accessModes:
-  - ReadWriteOnce
+    - ReadWriteOnce
   storageClassName: local-path
   resources:
     requests:
@@ -41,7 +41,7 @@ metadata:
   name: ytdl-material-claim-audio
 spec:
   accessModes:
-  - ReadWriteOnce
+    - ReadWriteOnce
   storageClassName: local-path
   resources:
     requests:
@@ -53,7 +53,7 @@ metadata:
   name: ytdl-material-claim-users
 spec:
   accessModes:
-  - ReadWriteOnce
+    - ReadWriteOnce
   storageClassName: local-path
   resources:
     requests:
