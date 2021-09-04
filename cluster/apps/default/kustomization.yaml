@@ -6,5 +6,5 @@ resources:
   - heimdall
   - ytdl-material
   - adguard
-  - pihole
+# - pihole
   - nzbhydra2
