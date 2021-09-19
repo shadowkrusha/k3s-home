@@ -27,8 +27,10 @@ spec:
 
     ingress:
       enabled: true
+      ingressClassName: "traefik"
       annotations:
-        kubernetes.io/ingress.class: "nginx"
+        cert-manager.io/cluster-issuer: "letsencrypt-production"
+        traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
       hosts:
         - "pihole.shadowkrusha.net"
       paths:
