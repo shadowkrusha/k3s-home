@@ -42,7 +42,7 @@ spec:
         existingClaim: readarr-config-v1
       media:
         enabled: true
-        type: custom
+        existingClaim: readarr-media-v1
         mountPath: /media
     resources:
       requests:
