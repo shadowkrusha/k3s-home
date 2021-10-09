@@ -27,6 +27,7 @@ spec:
         enabled: true
         ingressClassName: "traefik"
         annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
         hosts:
           - host: "readarr.${SECRET_DOMAIN}"
@@ -36,6 +37,7 @@ spec:
         tls:
           - hosts:
               - "readarr.${SECRET_DOMAIN}"
+            secretName: "readarr-${SECRET_DOMAIN//./-}-tls"
     persistence:
       config:
         enabled: true
