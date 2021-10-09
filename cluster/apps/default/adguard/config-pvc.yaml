@@ -16,6 +16,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: adguard-home-work
+  namespace: default
 spec:
   accessModes:
     - ReadWriteOnce
