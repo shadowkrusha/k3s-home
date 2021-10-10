@@ -5,5 +5,4 @@ resources:
   - nzbhydra2
   - calibre-web
   - readarr
-  # - sonarr
   - sabnzbd
