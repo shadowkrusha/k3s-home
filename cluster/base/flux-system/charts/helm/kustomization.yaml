@@ -12,3 +12,4 @@ resources:
   - descheduler-charts.yaml
   - external-dns-charts.yaml
   - traefik-charts.yaml
+  - groundhog2k-charts.yaml
