@@ -17,7 +17,8 @@ spec:
         namespace: flux-system
   values:
     image:
-      pullPolicy: IfNotPresent
+      repository: ghcr.io/k8s-at-home/nzbhydra2
+      tag: v3.17.3
     env:
       TZ: Australia/Perth
     ingress:
