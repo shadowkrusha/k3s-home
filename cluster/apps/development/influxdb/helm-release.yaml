@@ -33,12 +33,6 @@ spec:
       annotations:
         cert-manager.io/cluster-issuer: "letsencrypt-production"
         traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
-      hosts:
-        - host: "influx.${SECRET_DOMAIN}"
-          paths:
-            - path: /
-              pathType: Prefix
-      tls:
-        - hosts:
-            - "influx.${SECRET_DOMAIN}"
-          secretName: "influx-${SECRET_DOMAIN//./-}-tls"
+      hostname: "influx.${SECRET_DOMAIN}"
+      tls: true
+      secretName: "influx-${SECRET_DOMAIN//./-}-tls"
