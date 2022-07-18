@@ -20,6 +20,9 @@ spec:
       tag: 1.8.10
       pullPolicy: IfNotPresent
 
+    env:
+      - TZ: Australia/Perth
+
     persistence:
       config:
         enabled: true
