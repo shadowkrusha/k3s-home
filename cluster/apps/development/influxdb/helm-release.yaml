@@ -21,7 +21,8 @@ spec:
       pullPolicy: IfNotPresent
 
     env:
-      - TZ: Australia/Perth
+      - name: TZ
+        value: Australia/Perth
 
     persistence:
       config:
