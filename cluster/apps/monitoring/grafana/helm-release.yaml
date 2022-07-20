@@ -63,3 +63,4 @@ spec:
       tls:
         - hosts:
             - *host
+          secretName: "grafana-${SECRET_DOMAIN//./-}-tls"
