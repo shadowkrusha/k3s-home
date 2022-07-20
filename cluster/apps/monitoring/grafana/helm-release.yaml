@@ -19,6 +19,12 @@ spec:
     image:
       pullPolicy: IfNotPresent
 
+    env:
+      TZ: "Australia/Perth"
+      GF_EXPLORE_ENABLED: true
+      GF_SECURITY_ALLOW_EMBEDDING: true
+      GF_SECURITY_COOKIE_SAMESITE: grafana
+
     admin:
       existingSecret: grafana-admin-creds
 
@@ -38,10 +44,6 @@ spec:
         url: https://grafana.net
       auth.basic:
         disable_login_form: false
-
-    env:
-      - name: TZ
-        value: Australia/Perth
 
     # persistence:
     #   config:
