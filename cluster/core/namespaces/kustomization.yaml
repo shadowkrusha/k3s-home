@@ -6,5 +6,6 @@ resources:
   - development.yaml
   - media.yaml
   - metallb-system.yaml
+  - monitoring.yaml
   - networking.yaml
   - wordpress.yaml
