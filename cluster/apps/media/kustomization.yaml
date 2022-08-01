@@ -6,3 +6,4 @@ resources:
   - calibre-web
   - readarr
   - sabnzbd
+  - ytdl-material

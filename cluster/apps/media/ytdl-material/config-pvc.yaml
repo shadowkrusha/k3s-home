@@ -3,7 +3,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: ytdl-material-claim-subscriptions
-  namespace: default
+  namespace: media
 spec:
   accessModes:
     - ReadWriteOnce
@@ -16,7 +16,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: ytdl-material-claim-appdata
-  namespace: default
+  namespace: media
 spec:
   accessModes:
     - ReadWriteOnce
@@ -29,7 +29,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: ytdl-material-claim-video
-  namespace: default
+  namespace: media
 spec:
   accessModes:
     - ReadWriteOnce
@@ -42,7 +42,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: ytdl-material-claim-audio
-  namespace: default
+  namespace: media
 spec:
   accessModes:
     - ReadWriteOnce
@@ -55,7 +55,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: ytdl-material-claim-users
-  namespace: default
+  namespace: media
 spec:
   accessModes:
     - ReadWriteOnce
