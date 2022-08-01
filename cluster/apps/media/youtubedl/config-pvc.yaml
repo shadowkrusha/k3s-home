@@ -7,7 +7,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: local-path
+  storageClassName: nfs-csi
   resources:
     requests:
       storage: 1Gi
@@ -20,7 +20,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: local-path
+  storageClassName: nfs-csi
   resources:
     requests:
       storage: 1Gi
@@ -33,7 +33,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: local-path
+  storageClassName: nfs-csi
   resources:
     requests:
       storage: 1Gi
@@ -46,7 +46,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: local-path
+  storageClassName: nfs-csi
   resources:
     requests:
       storage: 1Gi
@@ -59,7 +59,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: local-path
+  storageClassName: nfs-csi
   resources:
     requests:
       storage: 1Gi
