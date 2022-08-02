@@ -27,9 +27,7 @@ spec:
     persistence:
       config:
         enabled: true
-        emptyDir:
-          enabled: false
-        existingClaim: influxdb-config
+        existingClaim: influxdb-data
 
     ingress:
       enabled: true
