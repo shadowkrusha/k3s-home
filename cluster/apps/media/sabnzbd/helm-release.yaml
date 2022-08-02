@@ -43,6 +43,27 @@ spec:
         enabled: true
         existingClaim: sabnzbd-config-v1
         mountPath: /config
+
+      # Mount Shared Media Folder
+      media:
+        enabled: true
+        type: custom
+        volumeSpec:
+          nfs:
+            server: "${NAS_ADDR}"
+            path: /data/Media
+        mountPath: /media
+
+      # Mount Shared Downloads Folder
+      downloads:
+        enabled: true
+        type: custom
+        volumeSpec:
+          nfs:
+            server: "${NAS_ADDR}"
+            path: /data/Downloads
+        mountPath: /downloads
+
     resources:
       requests:
         memory: 250Mi
