@@ -4,6 +4,6 @@ kind: Kustomization
 resources:
   - nzbhydra2
   - calibre-web
-  - readarr
-  - sabnzbd
+  # - readarr
+  # - sabnzbd
   - youtubedl
