@@ -3,11 +3,11 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: homer-config
-  namespace: default
+  namespace: dashboards
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: local-path
+  storageClassName: nfs-csi
   resources:
     requests:
       storage: 128Mi
