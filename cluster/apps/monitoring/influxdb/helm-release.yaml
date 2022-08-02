@@ -27,7 +27,7 @@ spec:
     persistence:
       config:
         enabled: true
-        existingClaim: influxdb-data
+        StorageClass: nfs-csi
 
     ingress:
       enabled: true
