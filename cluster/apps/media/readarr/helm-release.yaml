@@ -30,13 +30,13 @@ spec:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
         hosts:
-          - host: "readarr.${SECRET_DOMAIN}"
+          - host: &host "readarr.${SECRET_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
         tls:
           - hosts:
-              - "readarr.${SECRET_DOMAIN}"
+              - *host
             secretName: "readarr-${SECRET_DOMAIN//./-}-tls"
     persistence:
       config:
@@ -44,11 +44,7 @@ spec:
         existingClaim: readarr-config-v1
       media:
         enabled: true
-        type: custom
-        volumeSpec:
-          nfs:
-            server: "${NAS_ADDR}"
-            path: /data/Media
+        existingClaim: readarr-media
         mountPath: /media
     resources:
       requests:
