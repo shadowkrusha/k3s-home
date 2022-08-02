@@ -11,16 +11,3 @@ spec:
   resources:
     requests:
       storage: 1Gi
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: readarr-media
-  namespace: media
-spec:
-  accessModes:
-    - ReadWriteOnce
-  storageClassName: nfs-csi
-  resources:
-    requests:
-      storage: 10Gi

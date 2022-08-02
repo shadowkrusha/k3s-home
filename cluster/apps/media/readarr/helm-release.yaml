@@ -44,7 +44,11 @@ spec:
         existingClaim: readarr-config-v1
       media:
         enabled: true
-        existingClaim: readarr-media
+        type: custom
+        volumeSpec:
+          nfs:
+            server: "${NAS_ADDR}"
+            path: /data/Media
         mountPath: /media
     resources:
       requests:
