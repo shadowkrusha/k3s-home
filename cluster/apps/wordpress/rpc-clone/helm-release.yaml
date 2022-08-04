@@ -1,0 +1,39 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: rpc-clone
+  namespace: wordpress
+spec:
+  chart:
+    spec:
+      # https://groundhog2k.github.io/helm-charts/
+      chart: wordpress
+      version: 0.6.2
+      sourceRef:
+        kind: HelmRepository
+        name: groundhog2k-charts
+        namespace: flux-system
+      interval: 5m
+  interval: 1m0s
+  values:
+    env:
+      TZ: "Australia/Perth"
+    resources: {}
+    ingress:
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-production
+        traefik.ingress.kubernetes.io/router.entrypoints: websecure
+      enabled: true
+      hosts:
+        - host: &host wordpress.shadowkrusha.net
+          paths:
+            - /
+      tls:
+        - hosts:
+            - *host
+          secretName: "wordpress-${SECRET_DOMAIN//./-}-tls"
+    mariadb:
+      enabled: true
+    storage:
+      className: nfs-csi
