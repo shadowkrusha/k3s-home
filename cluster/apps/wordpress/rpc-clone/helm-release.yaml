@@ -26,7 +26,7 @@ spec:
         traefik.ingress.kubernetes.io/router.entrypoints: websecure
       enabled: true
       hosts:
-        - host: &host rpc-wordpress.shadowkrusha.net
+        - host: &host wordpress.shadowkrusha.net
           # paths:
           # - /
       tls:
