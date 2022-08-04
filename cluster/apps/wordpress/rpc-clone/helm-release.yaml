@@ -46,6 +46,10 @@ spec:
 
     mariadb:
       enabled: true
+      userDatabase:
+        name: wordpress
+        user: wordpress
+        password: wordpress
       storage:
         PersistentVolumeClaimName: database-data
 
