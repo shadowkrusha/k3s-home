@@ -28,8 +28,9 @@ spec:
       enabled: true
       hosts:
         - host: &host wordpress.shadowkrusha.net
-          # paths:
-          # - /
+          paths:
+            - path: /
+              pathType: Prefix
       tls:
         - hosts:
             - *host
