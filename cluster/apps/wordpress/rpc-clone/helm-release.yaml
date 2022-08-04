@@ -18,7 +18,8 @@ spec:
   interval: 1m0s
   values:
     env:
-      TZ: "Australia/Perth"
+      - name: TZ
+        value: "Australia/Perth"
     resources: {}
     ingress:
       annotations:
