@@ -20,7 +20,15 @@ spec:
     env:
       - name: TZ
         value: "Australia/Perth"
-    resources: {}
+
+    resources:
+      limits:
+        cpu: 100m
+        memory: 256Mi
+      requests:
+        cpu: 100m
+        memory: 128Mi
+
     ingress:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-production
@@ -35,7 +43,11 @@ spec:
         - hosts:
             - *host
           secretName: "wordpress-${SECRET_DOMAIN//./-}-tls"
+
     mariadb:
       enabled: true
+      storage:
+        PersistentVolumeClaimName: database-data
+
     storage:
-      className: nfs-csi
+      PersistentVolumeClaimName: wordpress-data
