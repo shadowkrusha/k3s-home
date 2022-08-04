@@ -10,7 +10,7 @@ spec:
   resources:
     requests:
       storage: 10Gi
-  storageClass: nfs-csi
+  storageClassName: nfs-csi
 
 ---
 apiVersion: v1
@@ -24,4 +24,4 @@ spec:
   resources:
     requests:
       storage: 10Gi
-  storageClass: nfs-csi
+  storageClassName: nfs-csi
