@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - cert-manager.yaml
   - dashboards.yaml
+  - databases.yaml
   - development.yaml
   - media.yaml
   - metallb-system.yaml
