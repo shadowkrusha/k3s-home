@@ -1,0 +1,10 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: neo4j-charts
+  namespace: flux-system
+spec:
+  interval: 30m
+  url: https://helm.neo4j.com/neo4j
+  timeout: 2m
