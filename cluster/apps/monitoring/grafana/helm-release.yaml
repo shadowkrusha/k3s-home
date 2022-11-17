@@ -19,6 +19,9 @@ spec:
     image:
       pullPolicy: IfNotPresent
 
+    rbac:
+      pspEnabled: false
+
     env:
       TZ: "Australia/Perth"
       GF_EXPLORE_ENABLED: true
