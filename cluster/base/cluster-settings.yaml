@@ -5,7 +5,7 @@ metadata:
   name: cluster-settings
   namespace: flux-system
 data:
-  NAS_ADDR: "192.168.20.29"
+  NAS_ADDR: "192.168.86.150"
   #
-  METALLB_LB_RANGE: 192.168.20.200-192.168.20.219
-  INGRESS_NGINX_LB: 192.168.20.200
+  METALLB_LB_RANGE: 192.168.86.200-192.168.86.219
+  INGRESS_NGINX_LB: 192.168.86.200
