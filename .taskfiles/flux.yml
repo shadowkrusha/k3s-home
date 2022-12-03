@@ -31,3 +31,10 @@ tasks:
     cmds:
       - flux get kustomizations -A
     silent: true
+
+  reset:
+    desc: Suspend and resume a release
+    cmds:
+      - flux suspend hr {{.CLI_ARGS}}
+      - flux resume hr {{.CLI_ARGS}}
+    silent: true
