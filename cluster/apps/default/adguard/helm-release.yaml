@@ -17,6 +17,8 @@ spec:
         namespace: flux-system
   values:
     image:
+      repository: adguard/adguardhome
+      tag: v0.107.7
       pullPolicy: IfNotPresent
     env:
       TZ: Australia/Perth
