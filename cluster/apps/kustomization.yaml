@@ -11,4 +11,4 @@ resources:
   - monitoring
   - networking
   - system-upgrade
-  # - wordpress
+  - wordpress
