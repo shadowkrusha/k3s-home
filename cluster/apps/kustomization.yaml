@@ -5,7 +5,7 @@ resources:
   - dashboards
   - databases
   - default
-  # - development
+  - development
   - kube-system
   - media
   - monitoring
