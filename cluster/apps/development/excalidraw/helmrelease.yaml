@@ -27,7 +27,7 @@ spec:
     keepHistory: false
   values:
     controller:
-      replicas: 2
+      replicas: 1
       strategy: RollingUpdate
     image:
       # https://github.com/excalidraw/excalidraw/pull/6143
