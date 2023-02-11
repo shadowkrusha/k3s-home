@@ -17,5 +17,6 @@ resources:
   - metrics-server-charts.yaml
   - mojo2600-charts.yaml
   - neo4j-charts.yaml
+  - strimzi-charts.yaml
   - traefik-charts.yaml
   - ytdl-material-charts.yaml

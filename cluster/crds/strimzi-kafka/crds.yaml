@@ -1,0 +1,30 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: GitRepository
+metadata:
+  name: strimzi-source
+  namespace: flux-system
+spec:
+  interval: 12h
+  url: https://github.com/strimzi/strimzi-kafka-operator.git
+  ref:
+    # renovate: registryUrl=https://strimzi.io/charts/ chart=strimzi-kafka-operator
+    tag: 0.33.1
+  ignore: |
+    # exclude all
+    /*
+    # include crd directory
+    !/config/crd
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: crds-strimzi
+  namespace: flux-system
+spec:
+  interval: 30m
+  prune: false
+  wait: true
+  sourceRef:
+    kind: GitRepository
+    name: strimzi-source
