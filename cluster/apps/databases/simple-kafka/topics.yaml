@@ -1,0 +1,27 @@
+---
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+  name: my-topic
+  labels:
+    strimzi.io/cluster: ephemeral-cluster
+spec:
+  partitions: 4
+  replicas: 1
+  config:
+    retention.ms: 7200000
+    segment.bytes: 1073741824
+
+---
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+  name: topic2
+  labels:
+    strimzi.io/cluster: ephemeral-cluster
+spec:
+  partitions: 1
+  replicas: 1
+  config:
+    retention.ms: 7200000
+    segment.bytes: 1073741824
