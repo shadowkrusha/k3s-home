@@ -3,6 +3,7 @@ apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaTopic
 metadata:
   name: my-topic
+  namespace: kafka
   labels:
     strimzi.io/cluster: ephemeral-cluster
 spec:
@@ -17,6 +18,7 @@ apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaTopic
 metadata:
   name: topic2
+  namespace: kafka
   labels:
     strimzi.io/cluster: ephemeral-cluster
 spec:
