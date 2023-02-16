@@ -18,7 +18,7 @@ spec:
   values:
     image:
       repository: adguard/adguardhome
-      tag: v0.107.23
+      tag: v0.107.24
       pullPolicy: IfNotPresent
     env:
       TZ: Australia/Perth
