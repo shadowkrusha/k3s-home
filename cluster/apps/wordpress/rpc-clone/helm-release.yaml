@@ -58,14 +58,14 @@ spec:
 
   valuesFrom:
     - targetPath: mariadb.settings.rootPassword
-      kind: secret
+      kind: Secret
       name: database-secrets
       valuesKey: root-password
     - targetPath: mariadb.userDatabase.user
-      kind: secret
+      kind: Secret
       name: database-secrets
       valuesKey: wordpress-username
     - targetPath: mariadb.userDatabase.password
-      kind: secret
+      kind: Secret
       name: database-secrets
       valuesKey: wordpress-password
