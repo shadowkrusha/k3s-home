@@ -55,3 +55,17 @@ spec:
 
     storage:
       PersistentVolumeClaimName: wordpress-data
+
+  valuesFrom:
+    - targetPath: mariadb.settings.rootPassword
+      kind: secret
+      name: database-secrets
+      valuesKey: root-password
+    - targetPath: mariadb.userDatabase.user
+      kind: secret
+      name: database-secrets
+      valuesKey: wordpress-username
+    - targetPath: mariadb.userDatabase.password
+      kind: secret
+      name: database-secrets
+      valuesKey: wordpress-password
