@@ -23,7 +23,7 @@ spec:
 
     resources:
       limits:
-        cpu: 100m
+        cpu: 500m
         memory: 256Mi
       requests:
         cpu: 100m
@@ -48,13 +48,11 @@ spec:
       enabled: true
       userDatabase:
         name: wordpress
-        user: wordpress
-        password: wordpress
       storage:
-        PersistentVolumeClaimName: database-data
+        persistentVolumeClaimName: database-data
 
     storage:
-      PersistentVolumeClaimName: wordpress-data
+      persistentVolumeClaimName: wordpress-data
 
   valuesFrom:
     - targetPath: mariadb.settings.rootPassword
