@@ -5,6 +5,7 @@ resources:
   - bitnami-charts.yaml
   - bjw-s.yaml
   - csi-driver-nfs-charts.yaml
+  - datahub-charts.yaml
   - descheduler-charts.yaml
   - external-dns-charts.yaml
   - grafana-charts.yaml
