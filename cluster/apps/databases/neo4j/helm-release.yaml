@@ -5,42 +5,25 @@ metadata:
   name: neo4j
   namespace: databases
 spec:
-  interval: 10m0s
   chart:
     spec:
-      # renovate: registryUrl=https://helm.neo4j.com/neo4j
       chart: neo4j
-      version: 5.5.0
       reconcileStrategy: ChartVersion
       sourceRef:
         kind: HelmRepository
         name: neo4j-charts
-        namespace: flux-system
+  interval: 10m0s
   values:
     neo4j:
+      acceptLicenseAgreement: "yes"
       name: my-standalone
+      password: my-initial-password
       resources:
         cpu: "0.5"
-        memory: "2Gi"
-
-      # Uncomment to set the initial password
-      password: "my-initial-password"
-
-      # Uncomment to use enterprise edition
-      #edition: "enterprise"
-      acceptLicenseAgreement: "yes"
-
+        memory: 2Gi
     volumes:
       data:
-        mode: defaultStorageClass
         defaultStorageClass:
           requests:
             storage: 2Gi
-
-  install:
-    createNamespace: true
-    remediation:
-      retries: 5
-  upgrade:
-    remediation:
-      retries: 5
+        mode: defaultStorageClass
