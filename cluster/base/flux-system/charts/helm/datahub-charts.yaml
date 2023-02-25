@@ -6,5 +6,5 @@ metadata:
   namespace: flux-system
 spec:
   interval: 30m
-  url: https://https://helm.datahubproject.io
+  url: https://helm.datahubproject.io
   timeout: 2m
