@@ -11,6 +11,8 @@ neo4j:
   #edition: "enterprise"
   acceptLicenseAgreement: "yes"
 
+  minimumClusterSize: 2
+
 volumes:
   data:
     mode: defaultStorageClass
