@@ -61,6 +61,8 @@ spec:
           kubespawner_override:
             image: jupyter/all-spark-notebook:6cc4a8596a0b
       storage:
+        dynamic:
+          storageClass: nfs-csi
         extraVolumeMounts:
           - mountPath: /dev/shm
             name: shm-volume
