@@ -26,10 +26,12 @@ spec:
       kind: Deployment
       replicas: 1
     service:
+      annotations:
+        metallb.universe.tf/loadBalancerIPs: "${SVC_TRAEFIK_ADDR}"
       enabled: true
       type: LoadBalancer
       spec:
-        loadBalancerIP: "${SVC_TRAEFIK_ADDR}"
+        # loadBalancerIP: "${SVC_TRAEFIK_ADDR}"
         externalTrafficPolicy: Local
     logs:
       general:
