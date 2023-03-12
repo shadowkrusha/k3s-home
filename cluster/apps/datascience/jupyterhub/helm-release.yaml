@@ -29,7 +29,7 @@ spec:
         cert-manager.io/cluster-issuer: "letsencrypt-production"
         traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
       hosts:
-        - host: &host "jupyter-ir.${SECRET_DOMAIN}"
+        - &host "jupyter-ir.${SECRET_DOMAIN}"
       tls:
         - hosts:
             - *host
