@@ -21,3 +21,4 @@ resources:
   - strimzi-charts.yaml
   - traefik-charts.yaml
   - ytdl-material-charts.yaml
+  - z2jh-charts.yaml

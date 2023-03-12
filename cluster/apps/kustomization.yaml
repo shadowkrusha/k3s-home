@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - dashboards
   - databases
+  - datascience
   - default
   - development
   - kube-system

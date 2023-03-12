@@ -1,0 +1,61 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: jhub
+  namespace: jhub
+spec:
+  chart:
+    spec:
+      # renovate: registryUrl=https://jupyterhub.github.io/helm-chart/
+      chart: jupyterhub
+      version: 2.0.0
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: z2jh-charts
+        namespace: flux-system
+  interval: 10m0s
+  values:
+    ingress:
+      annotations:
+        kubernetes.io/ingress.class: traefik
+        # nginx.ingress.kubernetes.io/proxy-body-size: 128m
+        metallb.universe.tf/loadBalancerIPs: 192.168.86.204
+      enabled: true
+      hosts:
+        - jupyter-ir.shadowkrusha.net
+    singleuser:
+      extraEnv:
+        TZ: Australia/Perth
+      image:
+        name: jupyter/minimal-notebook
+        tag: 6cc4a8596a0b
+      memory:
+        guarantee: 1G
+        limit: 1G
+      networkPolicy:
+        egressAllowRules:
+          privateIPs: true
+      profileList:
+        - default: true
+          description: "To avoid too much bells and whistles: Python."
+          display_name: Minimal environment
+        - description:
+            "If you want the additional bells and whistles: Python, R, and
+            Julia."
+          display_name: Datascience environment
+          kubespawner_override:
+            image: shadowkrusha/scipy-notebook:f16d1e3a935a
+        - description: The Jupyter Stacks spark image!
+          display_name: Spark environment
+          kubespawner_override:
+            image: jupyter/all-spark-notebook:6cc4a8596a0b
+      storage:
+        extraVolumeMounts:
+          - mountPath: /dev/shm
+            name: shm-volume
+        extraVolumes:
+          - emptyDir:
+              medium: Memory
+            name: shm-volume

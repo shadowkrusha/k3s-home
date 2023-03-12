@@ -6,6 +6,7 @@ resources:
   - dashboards.yaml
   - databases.yaml
   - development.yaml
+  - jhub.yaml
   - kafka.yaml
   - media.yaml
   - metallb-system.yaml
