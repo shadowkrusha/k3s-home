@@ -16,6 +16,18 @@ spec:
         port: 9093
         type: internal
         tls: true
+      - name: external
+        port: 9094
+        type: nodeport
+        tls: true
+        authentication:
+          type: tls
+        configuration:
+          bootstrap:
+            nodePort: 32100
+          brokers:
+            - broker: 0
+              nodePort: 3200
     config:
       offsets.topic.replication.factor: 1
       transaction.state.log.replication.factor: 1
