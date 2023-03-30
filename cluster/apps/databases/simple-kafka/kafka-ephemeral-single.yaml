@@ -24,10 +24,14 @@ spec:
           type: tls
         configuration:
           bootstrap:
-            nodePort: 33100
+            nodePort: 31100
           brokers:
             - broker: 0
-              nodePort: 33000
+              nodePort: 31000
+          brokerCertChainAndKey:
+            secretName: kafka-ephemeral-single-net-tls
+            certificate: tls.crt
+            key: tls.key
     config:
       offsets.topic.replication.factor: 1
       transaction.state.log.replication.factor: 1

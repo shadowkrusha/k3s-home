@@ -1,0 +1,20 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: kafka-ephemeral-single-net-tls
+  namespace: databases
+spec:
+  secretName: kafka-ephemeral-single-net-tls
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer
+    group: cert-manager.io
+  subject:
+    organizations:
+      - shadowkrusha.net
+  dnsNames:
+    - bootstrap.shadowkrusha.net
+    - broker-0.shadowkrusha.net
+    - broker-1.shadowkrusha.net
+    - broker-2.shadowkrusha.net
