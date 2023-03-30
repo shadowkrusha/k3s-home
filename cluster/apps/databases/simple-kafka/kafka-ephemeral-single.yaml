@@ -24,10 +24,10 @@ spec:
           type: tls
         configuration:
           bootstrap:
-            nodePort: 32100
+            nodePort: 33100
           brokers:
             - broker: 0
-              nodePort: 3200
+              nodePort: 33000
     config:
       offsets.topic.replication.factor: 1
       transaction.state.log.replication.factor: 1
