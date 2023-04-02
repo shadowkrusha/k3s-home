@@ -3,7 +3,7 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: kafka-ephemeral-single-net-tls
-  namespace: databases
+  namespace: kafka
 spec:
   secretName: kafka-ephemeral-single-net-tls
   issuerRef:
