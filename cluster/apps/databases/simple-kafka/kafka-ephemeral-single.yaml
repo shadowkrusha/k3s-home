@@ -21,7 +21,8 @@ spec:
         type: nodeport
         tls: true
         authentication:
-          type: tls
+          type: custom
+          sasl: false
         configuration:
           bootstrap:
             nodePort: 31100
