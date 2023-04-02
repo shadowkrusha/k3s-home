@@ -32,6 +32,8 @@ spec:
             secretName: kafka-ephemeral-single-net-tls
             certificate: tls.crt
             key: tls.key
+    authorization:
+      type: simple
     config:
       offsets.topic.replication.factor: 1
       transaction.state.log.replication.factor: 1
