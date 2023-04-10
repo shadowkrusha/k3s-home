@@ -9,7 +9,7 @@ spec:
     spec:
       # renovate: registryUrl=https://aquasecurity.github.io/helm-charts/
       chart: starboard-operator
-      version: 0.10.10
+      version: 0.10.12
       reconcileStrategy: ChartVersion
       sourceRef:
         kind: HelmRepository
