@@ -49,17 +49,17 @@ spec:
         disable_login_form: false
 
     datasources:
-    datasources.yaml:
-      apiVersion: 1
-      datasources:
-        - name: Loki
-          type: loki
-          access: browser
-          orgId: 1
-          uid: loki
-          url: http://loki-read.monitoring.svc:3100
-          isDefault: false
-          editable: true
+      datasources.yaml:
+        apiVersion: 1
+        datasources:
+          - name: Loki
+            type: loki
+            access: browser
+            orgId: 1
+            uid: loki
+            url: http://loki-read.monitoring.svc:3100
+            isDefault: false
+            editable: true
 
     # persistence:
     #   config:
