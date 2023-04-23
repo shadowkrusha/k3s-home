@@ -10,11 +10,23 @@ spec:
     spec:
       # renovate: registryUrl=https://grafana.github.io/helm-charts
       chart: grafana
-      version: 6.55.0
+      version: 6.53.0
       sourceRef:
         kind: HelmRepository
         name: grafana-charts
         namespace: flux-system
+  maxHistory: 3
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+
   values:
     image:
       pullPolicy: IfNotPresent
@@ -48,6 +60,19 @@ spec:
       auth.basic:
         disable_login_form: false
 
+    dashboardProviders:
+      dashboardproviders.yaml:
+        apiVersion: 1
+        providers:
+          - name: "default"
+            orgId: 1
+            folder: ""
+            type: file
+            disableDeletion: false
+            editable: true
+            options:
+              path: /var/lib/grafana/dashboards/default
+
     datasources:
       datasources.yaml:
         apiVersion: 1
@@ -57,9 +82,28 @@ spec:
             access: browser
             orgId: 1
             uid: loki
-            url: http://loki-read.monitoring.svc:3100
+            url: http://loki-gateway.monitoring.svc.cluster.local
             isDefault: false
             editable: true
+
+    dashboards:
+      # Ref: https://grafana.com/grafana/dashboards/13502-minio-dashboard/
+      minio:
+        gnetId: 13502
+        revision: 21
+        datasource: Prometheus
+      cert-manager:
+        url: https://raw.githubusercontent.com/monitoring-mixins/website/master/assets/cert-manager/dashboards/cert-manager.json
+        datasource: Prometheus
+      flux-cluster:
+        url: https://raw.githubusercontent.com/fluxcd/flux2/main/manifests/monitoring/monitoring-config/dashboards/cluster.json
+        datasource: Prometheus
+      flux-control-plane:
+        url: https://raw.githubusercontent.com/fluxcd/flux2/main/manifests/monitoring/monitoring-config/dashboards/control-plane.json
+        datasource: Prometheus
+      flux-logs:
+        url: https://raw.githubusercontent.com/fluxcd/flux2/main/manifests/monitoring/monitoring-config/dashboards/logs.json
+        datasource: Prometheus
 
     # persistence:
     #   config:
@@ -67,6 +111,9 @@ spec:
     #     emptyDir:
     #       enabled: false
     #     existingClaim: influxdb-config
+
+    serviceMonitor:
+      enabled: true
 
     ingress:
       enabled: true
