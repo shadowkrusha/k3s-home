@@ -10,7 +10,7 @@ jobs:
   update-helm-release-annotations:
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
+      - uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3
       - uses: k8s-at-home/renovate-helm-releases@c465468aea461abd747f8cd72ec14031f8d1ed7b # v1
         with:
           cluster-path: "./cluster"
