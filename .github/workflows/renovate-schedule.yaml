@@ -14,7 +14,7 @@ jobs:
       - uses: k8s-at-home/renovate-helm-releases@c465468aea461abd747f8cd72ec14031f8d1ed7b # v1
         with:
           cluster-path: "./cluster"
-      - uses: peter-evans/create-pull-request@284f54f989303d2699d373481a0cfa13ad5a6666 # v5
+      - uses: peter-evans/create-pull-request@153407881ec5c347639a548ade7d8ad1d6740e38 # v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: renovate-annotations
