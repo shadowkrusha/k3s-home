@@ -18,7 +18,7 @@ spec:
   values:
     image:
       repository: linuxserver/nzbhydra2
-      tag: 5.1.8
+      tag: 6.2.1
     probes:
       liveness:
         spec:
