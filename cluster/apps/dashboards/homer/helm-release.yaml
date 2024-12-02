@@ -18,7 +18,7 @@ spec:
   values:
     image:
       repository: b4bz/homer
-      tag: v23.02.2
+      tag: v24.12.1
       pullPolicy: IfNotPresent
     ingress:
       main:
