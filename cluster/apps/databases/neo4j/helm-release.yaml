@@ -9,7 +9,7 @@ spec:
     spec:
       # renovate: registryUrl=https://helm.neo4j.com/neo4j
       chart: neo4j
-      version: 5.6.0
+      version: 5.26.12
       reconcileStrategy: ChartVersion
       sourceRef:
         kind: HelmRepository
